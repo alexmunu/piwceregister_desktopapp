@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="piwcldbModels.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="addresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Street_no" Type="int" />
+          <Property Name="Street_Name" Type="varchar" MaxLength="20" />
+          <Property Name="PostCode" Type="varchar" MaxLength="16" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="Country" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="ch_ministries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ch_services">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="m_occupation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Occupation_Name" Type="varchar" MaxLength="25" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'def.piwcldb.member_ministry' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="member_ministry">
+          <Property Name="Id_Member" Type="int" />
+          <Property Name="Id_Ministry" Type="int" />
+        </EntityType>-->
+        <EntityType Name="members">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pim_no" Type="varchar" MaxLength="10" />
+          <Property Name="FirstName" Type="varchar" MaxLength="10" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" />
+          <Property Name="Telephone_no" Type="varchar" MaxLength="20" />
+          <Property Name="Mobile_no" Type="varchar" MaxLength="20" />
+          <Property Name="Id_Address" Type="int" />
+          <Property Name="Id_Occupation" Type="int" />
+        </EntityType>
+        <EntityType Name="non_member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="10" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" />
+          <Property Name="Mobile_no" Type="varchar" MaxLength="20" />
+          <Property Name="Purpose" Type="set" />
+          <Property Name="Comment" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.piwcldb.register' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="register">
+          <Key>
+            <PropertyRef Name="Id_Member" />
+            <PropertyRef Name="Id_Service" />
+          </Key>
+          <Property Name="Id_Member" Type="int" Nullable="false" />
+          <Property Name="Id_Service" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="services_types">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+error 6004: The table 'def.piwcldb.member_ministry' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__ch_ministries" />-->
+        <!--Errors Found During Generation:
+error 6004: The table 'def.piwcldb.member_ministry' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__members" />-->
+        <Association Name="FK_ch_services_services_types">
+          <End Role="services_types" Type="Self.services_types" Multiplicity="0..1" />
+          <End Role="ch_services" Type="Self.ch_services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="services_types">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ch_services">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_members_addresses">
+          <End Role="addresses" Type="Self.addresses" Multiplicity="0..1" />
+          <End Role="members" Type="Self.members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addresses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="members">
+              <PropertyRef Name="Id_Address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_members_m_statuses">
+          <End Role="m_occupation" Type="Self.m_occupation" Multiplicity="0..1" />
+          <End Role="members" Type="Self.members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="m_occupation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="members">
+              <PropertyRef Name="Id_Occupation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_register_ch_services">
+          <End Role="ch_services" Type="Self.ch_services" Multiplicity="1" />
+          <End Role="register" Type="Self.register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ch_services">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="register">
+              <PropertyRef Name="Id_Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_register_members">
+          <End Role="members" Type="Self.members" Multiplicity="1" />
+          <End Role="register" Type="Self.register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="members">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="register">
+              <PropertyRef Name="Id_Member" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="piwcldbModelsStoreContainer">
+          <EntitySet Name="addresses" EntityType="Self.addresses" Schema="piwcldb" store:Type="Tables" />
+          <EntitySet Name="ch_ministries" EntityType="Self.ch_ministries" Schema="piwcldb" store:Type="Tables" />
+          <EntitySet Name="ch_services" EntityType="Self.ch_services" Schema="piwcldb" store:Type="Tables" />
+          <EntitySet Name="m_occupation" EntityType="Self.m_occupation" Schema="piwcldb" store:Type="Tables" />
+          <EntitySet Name="members" EntityType="Self.members" Schema="piwcldb" store:Type="Tables" />
+          <EntitySet Name="non_member" EntityType="Self.non_member" Schema="piwcldb" store:Type="Tables" />
+          <EntitySet Name="services_types" EntityType="Self.services_types" Schema="piwcldb" store:Type="Tables" />
+          <EntitySet Name="register" EntityType="Self.register" store:Type="Tables" store:Schema="piwcldb">
+            <DefiningQuery>SELECT
+`register`.`Id_Member`, 
+`register`.`Id_Service`
+FROM `register` AS `register`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ch_services_services_types" Association="Self.FK_ch_services_services_types">
+            <End Role="services_types" EntitySet="services_types" />
+            <End Role="ch_services" EntitySet="ch_services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_members_addresses" Association="Self.FK_members_addresses">
+            <End Role="addresses" EntitySet="addresses" />
+            <End Role="members" EntitySet="members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_members_m_statuses" Association="Self.FK_members_m_statuses">
+            <End Role="m_occupation" EntitySet="m_occupation" />
+            <End Role="members" EntitySet="members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_register_ch_services" Association="Self.FK_register_ch_services">
+            <End Role="ch_services" EntitySet="ch_services" />
+            <End Role="register" EntitySet="register" />
+          </AssociationSet>
+          <AssociationSet Name="FK_register_members" Association="Self.FK_register_members">
+            <End Role="members" EntitySet="members" />
+            <End Role="register" EntitySet="register" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="piwcldbModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Street_no" Type="Int32" />
+          <Property Name="Street_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PostCode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="members" Relationship="Self.FK_members_addresses" FromRole="addresses" ToRole="members" />
+        </EntityType>
+        <EntityType Name="ch_ministries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ch_services">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Date" Type="DateTime" />
+          <NavigationProperty Name="services_types" Relationship="Self.FK_ch_services_services_types" FromRole="ch_services" ToRole="services_types" />
+          <NavigationProperty Name="members" Relationship="Self.register" FromRole="ch_services" ToRole="members" />
+        </EntityType>
+        <EntityType Name="m_occupation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Occupation_Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="members" Relationship="Self.FK_members_m_statuses" FromRole="m_occupation" ToRole="members" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pim_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Address" Type="Int32" />
+          <Property Name="Id_Occupation" Type="Int32" />
+          <NavigationProperty Name="address" Relationship="Self.FK_members_addresses" FromRole="members" ToRole="addresses" />
+          <NavigationProperty Name="m_occupation" Relationship="Self.FK_members_m_statuses" FromRole="members" ToRole="m_occupation" />
+          <NavigationProperty Name="ch_services" Relationship="Self.register" FromRole="members" ToRole="ch_services" />
+        </EntityType>
+        <EntityType Name="non_member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Purpose" Type="String" MaxLength="65531" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="Int32" />
+        </EntityType>
+        <EntityType Name="services_types">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ch_services" Relationship="Self.FK_ch_services_services_types" FromRole="services_types" ToRole="ch_services" />
+        </EntityType>
+        <Association Name="FK_members_addresses">
+          <End Role="addresses" Type="Self.address" Multiplicity="0..1" />
+          <End Role="members" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addresses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="members">
+              <PropertyRef Name="Id_Address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ch_services_services_types">
+          <End Role="services_types" Type="Self.services_types" Multiplicity="0..1" />
+          <End Role="ch_services" Type="Self.ch_services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="services_types">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ch_services">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_members_m_statuses">
+          <End Role="m_occupation" Type="Self.m_occupation" Multiplicity="0..1" />
+          <End Role="members" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="m_occupation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="members">
+              <PropertyRef Name="Id_Occupation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="register">
+          <End Role="ch_services" Type="Self.ch_services" Multiplicity="*" />
+          <End Role="members" Type="Self.member" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="piwcldbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="addresses" EntityType="Self.address" />
+          <EntitySet Name="ch_ministries" EntityType="Self.ch_ministries" />
+          <EntitySet Name="ch_services" EntityType="Self.ch_services" />
+          <EntitySet Name="m_occupation" EntityType="Self.m_occupation" />
+          <EntitySet Name="members" EntityType="Self.member" />
+          <EntitySet Name="non_member" EntityType="Self.non_member" />
+          <EntitySet Name="services_types" EntityType="Self.services_types" />
+          <AssociationSet Name="FK_members_addresses" Association="Self.FK_members_addresses">
+            <End Role="addresses" EntitySet="addresses" />
+            <End Role="members" EntitySet="members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ch_services_services_types" Association="Self.FK_ch_services_services_types">
+            <End Role="services_types" EntitySet="services_types" />
+            <End Role="ch_services" EntitySet="ch_services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_members_m_statuses" Association="Self.FK_members_m_statuses">
+            <End Role="m_occupation" EntitySet="m_occupation" />
+            <End Role="members" EntitySet="members" />
+          </AssociationSet>
+          <AssociationSet Name="register" Association="Self.register">
+            <End Role="ch_services" EntitySet="ch_services" />
+            <End Role="members" EntitySet="members" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="piwcldbModelsStoreContainer" CdmEntityContainer="piwcldbEntities">
+          <EntitySetMapping Name="addresses">
+            <EntityTypeMapping TypeName="piwcldbModels.address">
+              <MappingFragment StoreEntitySet="addresses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Street_no" ColumnName="Street_no" />
+                <ScalarProperty Name="Street_Name" ColumnName="Street_Name" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ch_ministries">
+            <EntityTypeMapping TypeName="piwcldbModels.ch_ministries">
+              <MappingFragment StoreEntitySet="ch_ministries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ch_services">
+            <EntityTypeMapping TypeName="piwcldbModels.ch_services">
+              <MappingFragment StoreEntitySet="ch_services">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m_occupation">
+            <EntityTypeMapping TypeName="piwcldbModels.m_occupation">
+              <MappingFragment StoreEntitySet="m_occupation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Occupation_Name" ColumnName="Occupation_Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="members">
+            <EntityTypeMapping TypeName="piwcldbModels.member">
+              <MappingFragment StoreEntitySet="members">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Pim_no" ColumnName="Pim_no" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Telephone_no" ColumnName="Telephone_no" />
+                <ScalarProperty Name="Mobile_no" ColumnName="Mobile_no" />
+                <ScalarProperty Name="Id_Address" ColumnName="Id_Address" />
+                <ScalarProperty Name="Id_Occupation" ColumnName="Id_Occupation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="non_member">
+            <EntityTypeMapping TypeName="piwcldbModels.non_member">
+              <MappingFragment StoreEntitySet="non_member">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Mobile_no" ColumnName="Mobile_no" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services_types">
+            <EntityTypeMapping TypeName="piwcldbModels.services_types">
+              <MappingFragment StoreEntitySet="services_types">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="register" TypeName="piwcldbModels.register" StoreEntitySet="register">
+            <EndProperty Name="ch_services">
+              <ScalarProperty Name="Id" ColumnName="Id_Service" />
+            </EndProperty>
+            <EndProperty Name="members">
+              <ScalarProperty Name="Id" ColumnName="Id_Member" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
