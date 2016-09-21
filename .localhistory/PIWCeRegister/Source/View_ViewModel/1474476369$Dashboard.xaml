@@ -7,32 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
    
-    <Grid  >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <StackPanel>
+    <DockPanel LastChildFill="False">
+		<StackPanel DockPanel.Dock="Left" Margin="0,0,0,66" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="0" >
+        <StackPanel DockPanel.Dock="Right" Margin="0,0,0,66" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" >
+        <StackPanel  DockPanel.Dock="Bottom" HorizontalAlignment="Stretch"  >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                        <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
             
 		</StackPanel>
 		
-    </Grid>
+    </DockPanel>
 </UserControl>

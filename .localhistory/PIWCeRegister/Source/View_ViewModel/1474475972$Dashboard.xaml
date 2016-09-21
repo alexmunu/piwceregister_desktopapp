@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="PIWCeRegister.Source.View_ViewModel.Dashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dashboard="clr-namespace:PIWCeRegister.Source.View_ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+   
+    <DockPanel LastChildFill="False">
+		<StackPanel DockPanel.Dock="Left" Margin="0,0,0,66"  >
+            <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!" Height="31" />
+		</StackPanel>
+        <StackPanel DockPanel.Dock="Right" Margin="0,0,0,66" >
+            <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
+		</StackPanel>
+        <StackPanel  DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" >
+            <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
+		</StackPanel>
+		
+    </DockPanel>
+</UserControl>

@@ -14,7 +14,7 @@ namespace PIWCeRegister.Source.View_ViewModel
 {
     class MainWindowViewModel:INotifyPropertyChanged
     {
-
+        //test comment
         public MainWindowViewModel()
         {
             DashClick = new BaseCommand(DashboardClick);
