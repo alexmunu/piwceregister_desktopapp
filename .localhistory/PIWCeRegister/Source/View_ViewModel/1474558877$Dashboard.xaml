@@ -6,50 +6,34 @@
              xmlns:dashboard="clr-namespace:PIWCeRegister.Source.View_ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
+   
     <Grid  >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*" />
-            <ColumnDefinition Width="13*" />
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        
         <StackPanel>
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >
+        <StackPanel Grid.Column="1" Grid.Row="0" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Column="3" Grid.Row="0" >
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
+                       <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="4" >
-            <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
-            </Border>
-        </StackPanel>
-
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Height="100" VerticalAlignment="Bottom" >
-            <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
-            </Border>
-        </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="100" VerticalAlignment="Bottom" >
-            <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
-            </Border>
-        </StackPanel>
+            
+		</StackPanel>
+		
     </Grid>
 </UserControl>

@@ -16,27 +16,14 @@
 	
     <DockPanel LastChildFill="True">
         <StackPanel x:Name="Navigation" DockPanel.Dock="Left" Margin="{StaticResource ControlMargin}" Width="87" Background="#FF323232" >
-            <!-- Dashboard Button -->
             <Button Command="{Binding DashClick}" Foreground="White" HorizontalContentAlignment="Left" Padding="28,6,5,6" BorderBrush="{x:Null}" Background="{x:Null}" ToolTip="Dashboard">
-                <Rectangle Width="20" Height="20" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+            	 <Rectangle Width="20" Height="20" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
                     <Rectangle.OpacityMask>
                         <VisualBrush Visual="{DynamicResource appbar_control_guide}" />
                     </Rectangle.OpacityMask>
                 </Rectangle>
+                
             </Button>
-            <!-- End Dashboard Buttonb -->
-            
-            <!-- Members Button -->
-            <Button Foreground="White" HorizontalContentAlignment="Left" Padding="28,6,5,6" BorderBrush="{x:Null}" Background="{x:Null}" ToolTip="Members" >
-                <Rectangle Width="20" Height="20" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
-                    <Rectangle.OpacityMask>
-                        <VisualBrush Visual="{DynamicResource appbar_people_multiple}" />
-                    </Rectangle.OpacityMask>
-                </Rectangle>
-            </Button>
-            <!-- End Dashboard Buttonb -->
-
-            <!-- About Button -->
             <Button Foreground="White" HorizontalContentAlignment="Left" Padding="28,6,5,6" BorderBrush="{x:Null}" Background="{x:Null}" ToolTip="About" >
                 <Rectangle Width="20" Height="20" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
                     <Rectangle.OpacityMask>
@@ -44,9 +31,6 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <!-- End About Button -->
-            
-            <!-- Settings Button -->
             <Button Foreground="White" HorizontalContentAlignment="Left" Padding="28,6,5,6" BorderBrush="{x:Null}" Background="{x:Null}" ToolTip="Settings" >
                 <Rectangle Width="20" Height="20" Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
                     <Rectangle.OpacityMask>
@@ -54,10 +38,9 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <!-- End Settings Button -->
             <Button Content="Department" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" />
         </StackPanel>
-        
+
         <ContentControl x:Name="Pages" DockPanel.Dock="Right" Content="{Binding SelectedViewModel}"/>
     </DockPanel>
 </Controls:MetroWindow>

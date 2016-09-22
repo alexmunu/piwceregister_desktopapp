@@ -54,7 +54,7 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <!-- End Settings Button -->
+            
             <Button Content="Department" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" />
         </StackPanel>
         

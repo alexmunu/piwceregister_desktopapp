@@ -9,10 +9,9 @@
 
     <Grid  >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*" />
-            <ColumnDefinition Width="13*" />
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -25,31 +24,28 @@
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >
+        <StackPanel Grid.Column="1" Grid.Row="0" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Column="3" Grid.Row="0" >
+        <StackPanel Grid.Column="2" Grid.Row="0" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="4" >
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Height="100" VerticalAlignment="Bottom" >
-            <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
-            </Border>
-        </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="100" VerticalAlignment="Bottom" >
-            <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
-            </Border>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" >
+            <Grid>
+                <Border BorderBrush="White" BorderThickness="1,1,1,1">
+                    <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
+                </Border>
+            </Grid>
         </StackPanel>
     </Grid>
 </UserControl>
