@@ -14,15 +14,14 @@ namespace PIWCeRegister.Source.View_ViewModel
 {
     class MainWindowViewModel:INotifyPropertyChanged
     {
-
-        public ICommand DashClick { get; set; }
-        public DashboardViewModel dashboard_instance = new DashboardViewModel();
         //test comment
         public MainWindowViewModel()
         {
             DashClick = new BaseCommand(DashboardClick);
-            SelectedViewModel = dashboard_instance;
-        }                 
+            
+        }
+
+        public ICommand DashClick { get; set; }
 
         private object selectedViewModel;
 
@@ -35,7 +34,7 @@ namespace PIWCeRegister.Source.View_ViewModel
 
         public void DashboardClick(object obj)
         {
-            SelectedViewModel = dashboard_instance;
+            SelectedViewModel=new DashboardViewModel();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -23,7 +23,7 @@
         <StackPanel>
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                <!-- <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>      -->
-                <ContentControl ToolTip="Counter" />
+                <ContentControl ToolTip="Counter"  Content="{Binding }"/>
             </Border>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >
