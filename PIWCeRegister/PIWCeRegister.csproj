@@ -61,6 +61,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ObjectModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -133,11 +134,10 @@
     <Compile Include="Source\View_ViewModel\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\View_ViewModel\PanelView_ViewModel\Test.xaml.cs">
-      <DependentUpon>Test.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Source\View_ViewModel\PanelView_ViewModel\TestViewModel.cs">
-      <DependentUpon>Test.xaml</DependentUpon>
+    <Compile Include="Source\View_ViewModel\PanelView_ViewModel\IPanellable.cs" />
+    <Compile Include="Source\View_ViewModel\PanelView_ViewModel\MembersViewModel.cs" />
+    <Compile Include="Source\View_ViewModel\PanelView_ViewModel\PanelControl.xaml.cs">
+      <DependentUpon>PanelControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="SplashWindow - Copy.xaml.cs">
       <DependentUpon>SplashWindow - Copy.xaml</DependentUpon>
@@ -155,7 +155,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\View_ViewModel\PanelView_ViewModel\Test.xaml">
+    <Page Include="Source\View_ViewModel\PanelView_ViewModel\PanelControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PIWCeRegister.Source.View_ViewModel.PanelView_ViewModel
 {
     /// <summary>
-    /// Interaction logic for Test.xaml
+    /// Interaction logic for PanelControl.xaml
     /// </summary>
-    public partial class Test : UserControl
+    public partial class PanelControl : UserControl
     {
-        public Test()
+        public PanelControl()
         {
             InitializeComponent();
         }

@@ -20,34 +20,34 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel>
+        <StackPanel Margin="10">
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                <!-- <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>      -->
                 <ContentControl ToolTip="Counter" />
             </Border>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >
+        </StackPanel >
+        <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Column="3" Grid.Row="0" >
+        <StackPanel Margin="10" Grid.Column="3" Grid.Row="0" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="4" >
+        <StackPanel Margin="10" Grid.Row="1" Grid.ColumnSpan="4" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Height="100" VerticalAlignment="Bottom" >
+        <StackPanel Margin="10" Grid.Row="2" Grid.ColumnSpan="2" Height="100"  >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="100" VerticalAlignment="Bottom" >
+        <StackPanel Margin="10" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Height="100" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace PIWCeRegister.Source.View_ViewModel.PanelView_ViewModel
 {
-    class TestViewModel
+    interface IPanellable
     {
+        int GetModelListCount();
+
+        string ModelName();
     }
 }
