@@ -136,8 +136,8 @@
     </Compile>
     <Compile Include="Source\View_ViewModel\PanelView_ViewModel\IPanellable.cs" />
     <Compile Include="Source\View_ViewModel\PanelView_ViewModel\MembersViewModel.cs" />
-    <Compile Include="Source\View_ViewModel\PanelView_ViewModel\PanelCtrl.xaml.cs">
-      <DependentUpon>PanelCtrl.xaml</DependentUpon>
+    <Compile Include="Source\View_ViewModel\PanelView_ViewModel\PanelControl.xaml.cs">
+      <DependentUpon>PanelControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="SplashWindow - Copy.xaml.cs">
       <DependentUpon>SplashWindow - Copy.xaml</DependentUpon>
@@ -155,7 +155,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\View_ViewModel\PanelView_ViewModel\PanelCtrl.xaml">
+    <Page Include="Source\View_ViewModel\PanelView_ViewModel\PanelControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

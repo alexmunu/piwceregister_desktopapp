@@ -24,7 +24,7 @@
         <StackPanel Margin="10">
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                <!-- <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>      -->
-                <panel:PanelCtrl Content="{Binding MembersViewModel}"/>
+                <ContentControl ToolTip="Counter" />
             </Border>
         </StackPanel >
         <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >

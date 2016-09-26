@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:dashboard="clr-namespace:PIWCeRegister.Source.View_ViewModel"
-             xmlns:panel="clr-namespace:PIWCeRegister.Source.View_ViewModel.PanelView_ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
@@ -24,7 +23,7 @@
         <StackPanel Margin="10">
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                <!-- <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>      -->
-                <panel:PanelCtrl Content="{Binding MembersViewModel}"/>
+                <ContentControl ToolTip="Counter" />
             </Border>
         </StackPanel >
         <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >
