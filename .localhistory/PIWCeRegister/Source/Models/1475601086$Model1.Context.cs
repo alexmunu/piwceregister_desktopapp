@@ -7,40 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class piwcldbEntities : DbContext
     {
         public piwcldbEntities()
             : base("name=piwcldbEntities")
         {
-                    
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
-        bool TestConnection()
-        {
-            var conn = this.Database.Connection;
-            try
-            {
-                conn.Open();   // check the database connection
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
+    
         public DbSet<address> addresses { get; set; }
         public DbSet<ch_ministries> ch_ministries { get; set; }
         public DbSet<ch_services> ch_services { get; set; }

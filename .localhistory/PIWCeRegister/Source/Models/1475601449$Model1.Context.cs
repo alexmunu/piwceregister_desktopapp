@@ -13,15 +13,14 @@ namespace PIWCeRegister.Source.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class piwcldbEntities : DbContext
     {
         public piwcldbEntities()
             : base("name=piwcldbEntities")
         {
-                    
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -29,7 +28,7 @@ namespace PIWCeRegister.Source.Models
 
         bool TestConnection()
         {
-            var conn = this.Database.Connection;
+                var conn = this.Database.Connection;
             try
             {
                 conn.Open();   // check the database connection
