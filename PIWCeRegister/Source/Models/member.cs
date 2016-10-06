@@ -12,7 +12,7 @@ namespace PIWCeRegister.Source.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class member
+    public partial class member   :IModel
     {
         public member()
         {

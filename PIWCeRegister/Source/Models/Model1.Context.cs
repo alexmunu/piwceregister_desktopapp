@@ -27,20 +27,6 @@ namespace PIWCeRegister.Source.Models
             throw new UnintentionalCodeFirstException();
         }
 
-        bool TestConnection()
-        {
-            var conn = this.Database.Connection;
-            try
-            {
-                conn.Open();   // check the database connection
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
         public DbSet<address> addresses { get; set; }
         public DbSet<ch_ministries> ch_ministries { get; set; }
         public DbSet<ch_services> ch_services { get; set; }

@@ -12,7 +12,7 @@ namespace PIWCeRegister.Source.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class m_occupation
+    public partial class m_occupation     :IModel
     {
         public m_occupation()
         {

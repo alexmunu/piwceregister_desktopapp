@@ -7,25 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using PIWCeRegister.Source;
+
 namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class address
+
+    public partial class address : IModel
     {
         public address()
         {
             this.members = new HashSet<member>();
         }
-    
+
         public int Id { get; set; }
         public Nullable<int> Street_no { get; set; }
         public string Street_Name { get; set; }
         public string PostCode { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-    
+
         public virtual ICollection<member> members { get; set; }
     }
 }

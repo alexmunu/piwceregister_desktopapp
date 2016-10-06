@@ -102,6 +102,7 @@
     </ApplicationDefinition>
     <Compile Include="MemberViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Source\Models\IModel.cs" />
     <Compile Include="Source\Models\address.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -119,11 +120,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Source\Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Source\Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -139,6 +135,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Source\Services\ProtobufContext.cs" />
+    <Compile Include="Source\Services\ProtoContext.cs" />
     <Compile Include="Source\Services\RestClientService.cs" />
     <Compile Include="Source\View_ViewModel\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
@@ -260,6 +257,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
+    <Folder Include="Source\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\WindowsIcons-license.txt" />

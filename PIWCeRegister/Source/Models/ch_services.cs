@@ -12,7 +12,7 @@ namespace PIWCeRegister.Source.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ch_services
+    public partial class ch_services     :IModel
     {
         public ch_services()
         {

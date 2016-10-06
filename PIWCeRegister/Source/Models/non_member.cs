@@ -12,7 +12,7 @@ namespace PIWCeRegister.Source.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class non_member
+    public partial class non_member    :IModel
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
