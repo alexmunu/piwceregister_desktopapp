@@ -38,9 +38,7 @@ namespace PIWCeRegister.Source.Models
         public Nullable<int> Id_Occupation { get; set; }
         [DataMember]
         public virtual address address { get; set; }
-        [DataMember]
         public virtual m_occupation m_occupation { get; set; }
-        [DataMember]
         public virtual ICollection<ch_services> ch_services { get; set; }
     }
 }

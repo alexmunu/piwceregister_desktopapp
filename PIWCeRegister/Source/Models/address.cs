@@ -7,13 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Runtime.Serialization;
 using PIWCeRegister.Source;
 
 namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Collections.Generic;
-
+    [DataContract]
     public partial class address : IModel
     {
         public address()
@@ -21,13 +22,19 @@ namespace PIWCeRegister.Source.Models
             this.members = new HashSet<member>();
         }
 
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public Nullable<int> Street_no { get; set; }
+        [DataMember]
         public string Street_Name { get; set; }
+        [DataMember]
         public string PostCode { get; set; }
+        [DataMember]
         public string City { get; set; }
+        [DataMember]
         public string Country { get; set; }
-
+        [DataMember]
         public virtual ICollection<member> members { get; set; }
     }
 }

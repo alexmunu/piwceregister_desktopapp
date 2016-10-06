@@ -7,26 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Runtime.Serialization;
-
 namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Collections.Generic;
-      [DataContract]
-    public partial class m_occupation     :IModel
+    
+    public partial class non_member    :IModel
     {
-        public m_occupation()
-        {
-            this.members = new HashSet<member>();
-        }
-        [DataMember]
         public int Id { get; set; }
-        [DataMember]
-        public string Occupation_Name { get; set; }
-        [DataMember]
-        public string Description { get; set; }
-        [DataMember]
-        public virtual ICollection<member> members { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Mobile_no { get; set; }
+        public string Purpose { get; set; }
+        public Nullable<int> Comment { get; set; }
     }
 }

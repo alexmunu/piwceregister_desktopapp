@@ -13,19 +13,24 @@ namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Collections.Generic;
-      [DataContract]
-    public partial class m_occupation     :IModel
+    
+    [DataContract]
+    public partial class ch_services     :IModel
     {
-        public m_occupation()
+        public ch_services()
         {
             this.members = new HashSet<member>();
         }
+    
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public string Occupation_Name { get; set; }
+        public Nullable<int> Type { get; set; }
         [DataMember]
-        public string Description { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+
+        [DataMember]
+        public virtual services_types services_types { get; set; }
         [DataMember]
         public virtual ICollection<member> members { get; set; }
     }

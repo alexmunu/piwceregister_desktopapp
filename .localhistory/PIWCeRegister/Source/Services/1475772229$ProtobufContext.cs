@@ -19,6 +19,8 @@
 //           
 //           Either or not the connection to the database has been succesful, the classs will load the specified by type serialised/stored entity.    
 //           
+//          
+// 
 #endregion
 
 using PIWCeRegister.Source.Models;
@@ -110,7 +112,7 @@ namespace PIWCeRegister.Source.Services
 
         public List<object> ModelsList => _modelsList;
 
-        public void Add<TModel>(TModel model) where TModel : class, IModel
+        public void Add<TModel>(TModel model) where TModel : class,IModel
         {
             if (_modelsList.Count > 0)
             {
@@ -132,13 +134,13 @@ namespace PIWCeRegister.Source.Services
 
         }
 
-        public List<TModel> Context<TModel>() where TModel : class, IModel
+        public List<TModel> Context<TModel>() where TModel : class,IModel
         {
             return _instance.GetPropertyValue<TModel>(typeof(TModel).Name + "s");
         }
 
-
-        public void Executor<TModel>() where TModel : class, IModel
+        
+        public void Executor<TModel>() where TModel : class,IModel
         {
             var modelList = new List<TModel>();
             if (TestConnection)
@@ -162,8 +164,8 @@ namespace PIWCeRegister.Source.Services
             Init(modelList);
             this._modelsList.Add(modelList);
         }
-
-        public void ExecutorInterface<TModel>(object func) where TModel : class, IModel
+         
+        public void ExecutorInterface<TModel>(object func) where TModel : class,IModel
         {
             Init(func as List<TModel>);
         }

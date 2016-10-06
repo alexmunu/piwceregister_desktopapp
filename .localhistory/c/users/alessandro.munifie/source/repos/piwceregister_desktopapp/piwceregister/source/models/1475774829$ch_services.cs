@@ -7,26 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Runtime.Serialization;
-
 namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Collections.Generic;
-      [DataContract]
-    public partial class m_occupation     :IModel
+    
+    public partial class ch_services     :IModel
     {
-        public m_occupation()
+        public ch_services()
         {
             this.members = new HashSet<member>();
         }
-        [DataMember]
+    
         public int Id { get; set; }
-        [DataMember]
-        public string Occupation_Name { get; set; }
-        [DataMember]
-        public string Description { get; set; }
-        [DataMember]
+        public Nullable<int> Type { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+    
+        public virtual services_types services_types { get; set; }
         public virtual ICollection<member> members { get; set; }
     }
 }

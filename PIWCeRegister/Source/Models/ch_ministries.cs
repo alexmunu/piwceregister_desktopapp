@@ -7,14 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Runtime.Serialization;
+
 namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class ch_ministries  :IModel
+
+    [DataContract]
+    public partial class ch_ministries : IModel
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string Name { get; set; }
     }
 }

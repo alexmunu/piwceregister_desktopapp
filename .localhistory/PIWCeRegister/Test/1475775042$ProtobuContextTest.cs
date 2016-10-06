@@ -65,7 +65,6 @@ namespace PIWCeRegister.Test
                 {
                     p = new ProtobufContext();
                     p.Executor<member>();
-                    p.Executor<ch_services>();
                 });
         }
     }
