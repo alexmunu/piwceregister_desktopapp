@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PIWCeRegister.Source.View_ViewModel.PanelView_ViewModel
+namespace PIWCeRegister.Source.View_ViewModel
 {
     /// <summary>
-    /// Interaction logic for PanelCtrl.xaml
+    /// Interaction logic for ePanel.xaml
     /// </summary>
-    public partial class PanelCtrl : UserControl
+    public partial class ePanel : UserControl
     {
-        public PanelCtrl()
+        public ePanel()
         {
             InitializeComponent();
         }

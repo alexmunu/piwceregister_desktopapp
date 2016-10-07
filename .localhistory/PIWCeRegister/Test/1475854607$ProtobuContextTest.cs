@@ -72,7 +72,7 @@ namespace PIWCeRegister.Test
             p.SerialiseAndStoreList(members);
         }
 
-        [Test]
+         [Test]
         public void DeserialisationTest()
         {
             p = new ProtobufContext();

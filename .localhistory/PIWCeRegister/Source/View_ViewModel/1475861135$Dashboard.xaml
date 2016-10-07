@@ -37,15 +37,13 @@
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
-        <!-- ReSharper disable once Xaml.MissingGridIndex -->
         <StackPanel Margin="10" Grid.Row="1" Grid.ColumnSpan="4" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
         </StackPanel>
 
-        <!-- ReSharper disable once Xaml.MissingGridIndex -->
-        <StackPanel Margin="10" Grid.Row="2" Grid.ColumnSpan="2"  Height="100"  >
+        <StackPanel Margin="10" Grid.Row="2" Grid.ColumnSpan="2" Height="100"  >
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
                 <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
             </Border>
