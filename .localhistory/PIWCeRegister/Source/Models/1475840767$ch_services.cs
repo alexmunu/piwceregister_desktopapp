@@ -8,35 +8,29 @@
 //------------------------------------------------------------------------------
 
 using System.Runtime.Serialization;
-using ProtoBuf;
 
 namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Collections.Generic;
 
-    [ProtoContract]
     [DataContract]
-    public partial class m_occupation : IModel
+    public partial class ch_services : IModel
     {
-        public m_occupation()
+        public ch_services()
         {
             this.members = new HashSet<member>();
         }
 
-        [ProtoMember(1)]
         [DataMember]
         public int Id { get; set; }
-
-        [ProtoMember(2)]
         [DataMember]
-        public string Occupation_Name { get; set; }
-
-        [ProtoMember(3)]
+        public Nullable<int> Type { get; set; }
         [DataMember]
-        public string Description { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
 
-        [ProtoMember(4, OverwriteList = true)]
+        [DataMember]
+        public virtual services_types services_types { get; set; }
         [DataMember]
         public virtual ICollection<member> members { get; set; }
     }

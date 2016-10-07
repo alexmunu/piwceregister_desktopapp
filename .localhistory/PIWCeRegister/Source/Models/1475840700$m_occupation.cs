@@ -23,20 +23,12 @@ namespace PIWCeRegister.Source.Models
         {
             this.members = new HashSet<member>();
         }
-
-        [ProtoMember(1)]
         [DataMember]
         public int Id { get; set; }
-
-        [ProtoMember(2)]
         [DataMember]
         public string Occupation_Name { get; set; }
-
-        [ProtoMember(3)]
         [DataMember]
         public string Description { get; set; }
-
-        [ProtoMember(4, OverwriteList = true)]
         [DataMember]
         public virtual ICollection<member> members { get; set; }
     }

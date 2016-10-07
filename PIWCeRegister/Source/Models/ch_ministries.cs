@@ -8,17 +8,22 @@
 //------------------------------------------------------------------------------
 
 using System.Runtime.Serialization;
+using ProtoBuf;
 
 namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Collections.Generic;
 
+    [ProtoContract]
     [DataContract]
     public partial class ch_ministries : IModel
     {
+        [ProtoMember(1)]
         [DataMember]
         public int Id { get; set; }
+
+        [ProtoMember(2)]
         [DataMember]
         public string Name { get; set; }
     }
