@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace PIWCeRegister.Source.Services
 {
-    public sealed class ProtoContext : DynamicObject
+    public sealed class ProtoContext  :DynamicObject
     {
         private readonly Dictionary<string, object> _properties;
 
-        public List<T> GetPropertyValue<T>(string key) where T : class => (List<T>)_properties[key];
+        public List<T> GetPropertyValue<T>(string key) where T:class => (List<T>)_properties[key];
 
         public ProtoContext(Dictionary<string, object> properties)
         {

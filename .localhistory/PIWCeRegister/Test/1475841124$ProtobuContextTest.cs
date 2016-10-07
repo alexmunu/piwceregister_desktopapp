@@ -58,7 +58,7 @@ namespace PIWCeRegister.Test
         }
 
         [Test]
-        public void SerialisationTest()
+        public void TestSerialisation()
         {
             p = new ProtobufContext();
             p.Add(m1);

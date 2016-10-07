@@ -58,18 +58,6 @@ namespace PIWCeRegister.Test
         }
 
         [Test]
-        public void SerialisationTest()
-        {
-            p = new ProtobufContext();
-            p.Add(m1);
-            p.ExecutorInterface<member>(p.ModelsList.ElementAt(0));
-
-            var members = p.Context<member>();
-
-            p.SerialiseAndStoreList(members);
-        }
-
-        [Test]
         public void ConstructorInitException_Test()
         {
             Assert.Throws<Exception>(

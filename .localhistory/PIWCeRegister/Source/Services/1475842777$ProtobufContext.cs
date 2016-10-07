@@ -94,7 +94,7 @@ namespace PIWCeRegister.Source.Services
         {
             var p = new List<TModel>();
 
-            using (var file = File.OpenRead(AppDomain.CurrentDomain.BaseDirectory + typeof(TModel).Name + "s.bin"))
+            using (var file = File.OpenRead((typeof(TModel).Name + "s.bin")))
             {
                 p = Serializer.Deserialize<List<TModel>>(file);
             }
@@ -105,7 +105,7 @@ namespace PIWCeRegister.Source.Services
         private void SaveSerialisedList<T>(List<T> list) where T : class, IModel
         {
             
-            using (var file = File.Create(AppDomain.CurrentDomain.BaseDirectory + typeof(T).Name + "s.bin"))
+            using (var file = File.Create(AppDomain.CurrentDomain.BaseDirectory +"/.data/"+ typeof(T).Name + "s.bin"))
             {
                 Serializer.Serialize(file, list);
             }
