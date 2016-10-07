@@ -111,7 +111,7 @@ namespace PIWCeRegister.Source.Services
             }
         }
 
-        public void SerialiseAndStoreList<TModel>(List<TModel> list ) where TModel : class,IModel  <TModel>
+        public void SerialiseAndStoreList<T>(List<T> list ) where T:class,IModel  <T>
         {
             SaveSerialisedList(list);
         }

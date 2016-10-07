@@ -14,10 +14,10 @@ namespace PIWCeRegister.Source.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     [ProtoContract]
     [DataContract]
-    public partial class non_member : IModel<non_member>
+    public partial class non_member    :IModel
     {
         [ProtoMember(1)]
         [DataMember]
@@ -42,13 +42,5 @@ namespace PIWCeRegister.Source.Models
         [ProtoMember(6)]
         [DataMember]
         public Nullable<int> Comment { get; set; }
-
-        public bool Equals(non_member other)
-        {
-            return (
-                (FirstName == other.FirstName)
-                && (LastName == other.LastName)
-            );
-        }
     }
 }

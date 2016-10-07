@@ -17,38 +17,31 @@ namespace PIWCeRegister.Source.Models
 
     [ProtoContract]
     [DataContract]
-    public partial class non_member : IModel<non_member>
+    public partial class ch_services : IModel
     {
+        public ch_services()
+        {
+            this.members = new HashSet<member>();
+        }
+
         [ProtoMember(1)]
         [DataMember]
         public int Id { get; set; }
 
         [ProtoMember(2)]
         [DataMember]
-        public string FirstName { get; set; }
+        public Nullable<int> Type { get; set; }
 
         [ProtoMember(3)]
         [DataMember]
-        public string LastName { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
 
         [ProtoMember(4)]
         [DataMember]
-        public string Mobile_no { get; set; }
+        public virtual services_types services_types { get; set; }
 
-        [ProtoMember(5)]
+        [ProtoMember(5,OverwriteList = true)]
         [DataMember]
-        public string Purpose { get; set; }
-
-        [ProtoMember(6)]
-        [DataMember]
-        public Nullable<int> Comment { get; set; }
-
-        public bool Equals(non_member other)
-        {
-            return (
-                (FirstName == other.FirstName)
-                && (LastName == other.LastName)
-            );
-        }
+        public virtual ICollection<member> members { get; set; }
     }
 }

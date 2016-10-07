@@ -17,7 +17,7 @@ namespace PIWCeRegister.Source.Models
 
     [ProtoContract]
     [DataContract]
-    public partial class non_member : IModel<non_member>
+    public partial class ch_ministries : IModel  <ch_ministries>
     {
         [ProtoMember(1)]
         [DataMember]
@@ -25,29 +25,14 @@ namespace PIWCeRegister.Source.Models
 
         [ProtoMember(2)]
         [DataMember]
-        public string FirstName { get; set; }
+        public string Name { get; set; }
 
-        [ProtoMember(3)]
-        [DataMember]
-        public string LastName { get; set; }
-
-        [ProtoMember(4)]
-        [DataMember]
-        public string Mobile_no { get; set; }
-
-        [ProtoMember(5)]
-        [DataMember]
-        public string Purpose { get; set; }
-
-        [ProtoMember(6)]
-        [DataMember]
-        public Nullable<int> Comment { get; set; }
-
-        public bool Equals(non_member other)
+        public bool Equals(IModel<ch_ministries> other)
         {
+            if (other == null) return false;
+
             return (
-                (FirstName == other.FirstName)
-                && (LastName == other.LastName)
+                (Name == ((ch_ministries)other).Name)
             );
         }
     }

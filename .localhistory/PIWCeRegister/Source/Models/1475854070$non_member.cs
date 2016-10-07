@@ -43,11 +43,11 @@ namespace PIWCeRegister.Source.Models
         [DataMember]
         public Nullable<int> Comment { get; set; }
 
-        public bool Equals(non_member other)
+        public bool Equals(IModel<non_member> other)
         {
             return (
-                (FirstName == other.FirstName)
-                && (LastName == other.LastName)
+                (FirstName == ((non_member)other).FirstName)
+                && (LastName == ((non_member)other).LastName)
             );
         }
     }

@@ -30,7 +30,6 @@ using System.IO;
 using System.Linq;
 using System.Net.Mime;
 using System.Windows;
-using ProtoBuf.Meta;
 
 namespace PIWCeRegister.Source.Services
 {
@@ -91,7 +90,7 @@ namespace PIWCeRegister.Source.Services
             }
         }
 
-        private List<TModel> LoadSerialisedList<TModel>() where TModel : class, IModel<TModel> 
+        private List<TModel> LoadSerialisedList<TModel>() where TModel : class, IModel
         {
             var p = new List<TModel>();
 
@@ -103,26 +102,22 @@ namespace PIWCeRegister.Source.Services
             return p;
         }
 
-        private void SaveSerialisedList<TModel>(List<TModel> list) where TModel : class, IModel<TModel>
+        private void SaveSerialisedList<T>(List<T> list) where T : class, IModel
         {
-            using (var file = File.Create(AppDomain.CurrentDomain.BaseDirectory + typeof(TModel).Name + "s.bin"))
+            using (var file = File.Create(AppDomain.CurrentDomain.BaseDirectory + typeof(T).Name + "s.bin"))
             {
                 Serializer.Serialize(file, list);
             }
         }
 
-        public void SerialiseAndStoreList<TModel>(List<TModel> list ) where TModel : class,IModel  <TModel>
+        public void SerialiseAndStoreList<T>(List<T> list ) where T:class,IModel 
         {
             SaveSerialisedList(list);
         }
 
-        public List<TModel> DeserialiseAndLoadList<TModel>() where TModel : class, IModel <TModel>
-        {
-            return LoadSerialisedList<TModel>();
-        }
         public List<object> ModelsList => _modelsList;
 
-        public void Add<TModel>(TModel model) where TModel : class, IModel<TModel>
+        public void Add<TModel>(TModel model) where TModel : class, IModel
         {
             if (_modelsList.Count > 0)
             {
@@ -142,13 +137,13 @@ namespace PIWCeRegister.Source.Services
             }
         }
 
-        public List<TModel> Context<TModel>() where TModel : class, IModel <TModel>
+        public List<TModel> Context<TModel>() where TModel : class, IModel
         {
             return _instance.GetPropertyValue<TModel>(typeof(TModel).Name + "s");
         }
 
 
-        public void Executor<TModel>() where TModel : class, IModel <TModel>
+        public void Executor<TModel>() where TModel : class, IModel
         {
             var modelList = new List<TModel>();
             if (TestConnection)
@@ -173,7 +168,7 @@ namespace PIWCeRegister.Source.Services
             this._modelsList.Add(modelList);
         }
 
-        public void ExecutorInterface<TModel>(object func) where TModel : class, IModel<TModel>
+        public void ExecutorInterface<TModel>(object func) where TModel : class, IModel
         {
             Init(func as List<TModel>);
         }

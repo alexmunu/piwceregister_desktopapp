@@ -103,15 +103,15 @@ namespace PIWCeRegister.Source.Services
             return p;
         }
 
-        private void SaveSerialisedList<TModel>(List<TModel> list) where TModel : class, IModel<TModel>
+        private void SaveSerialisedList<T>(List<T> list) where T : class, IModel<T>
         {
-            using (var file = File.Create(AppDomain.CurrentDomain.BaseDirectory + typeof(TModel).Name + "s.bin"))
+            using (var file = File.Create(AppDomain.CurrentDomain.BaseDirectory + typeof(T).Name + "s.bin"))
             {
                 Serializer.Serialize(file, list);
             }
         }
 
-        public void SerialiseAndStoreList<TModel>(List<TModel> list ) where TModel : class,IModel  <TModel>
+        public void SerialiseAndStoreList<T>(List<T> list ) where T:class,IModel  <T>
         {
             SaveSerialisedList(list);
         }

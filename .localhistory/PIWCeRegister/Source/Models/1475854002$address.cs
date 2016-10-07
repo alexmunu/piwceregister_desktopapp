@@ -52,7 +52,20 @@ namespace PIWCeRegister.Source.Models
         [ProtoMember(7, OverwriteList = true)]
         [DataMember]
         public virtual ICollection<member> members { get; set; }
-       
+
+        public bool Equals(IModel<address> other)
+        {
+            if (other == null) return false;
+
+            return (
+                (Country == ((address)other).Country)
+                && (City == ((address)other).City)
+                && (PostCode == ((address)other).PostCode)
+                && (Street_Name == ((address)other).Street_Name) && (Street_no == ((address)other).Street_no)
+            );
+                                                                    
+        }
+
         public bool Equals(address other)
         {
             if (other == null) return false;

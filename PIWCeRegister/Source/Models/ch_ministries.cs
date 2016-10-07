@@ -17,7 +17,7 @@ namespace PIWCeRegister.Source.Models
 
     [ProtoContract]
     [DataContract]
-    public partial class ch_ministries : IModel
+    public partial class ch_ministries : IModel <ch_ministries>
     {
         [ProtoMember(1)]
         [DataMember]
@@ -26,5 +26,14 @@ namespace PIWCeRegister.Source.Models
         [ProtoMember(2)]
         [DataMember]
         public string Name { get; set; }
+
+        public bool Equals(ch_ministries other)
+        {
+            if (other == null) return false;
+
+            return (
+                (Name == other.Name)
+            );
+        }
     }
 }

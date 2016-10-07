@@ -17,7 +17,7 @@ namespace PIWCeRegister.Source.Models
 
     [ProtoContract]
     [DataContract]
-    public partial class services_types : IModel
+    public partial class services_types : IModel<services_types>
     {
         public services_types()
         {
@@ -39,5 +39,14 @@ namespace PIWCeRegister.Source.Models
         [ProtoMember(4,OverwriteList = true)]
         [DataMember]
         public virtual ICollection<ch_services> ch_services { get; set; }
+
+        public bool Equals(services_types other)
+        {
+            if (other == null) return false;
+
+            return (
+              (Type_Name == other.Type_Name)
+          );
+        }
     }
 }

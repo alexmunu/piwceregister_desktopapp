@@ -17,7 +17,7 @@ namespace PIWCeRegister.Source.Models
 
     [ProtoContract]
     [DataContract]
-    public partial class m_occupation : IModel
+    public partial class m_occupation : IModel<m_occupation>
     {
         public m_occupation()
         {
@@ -39,5 +39,12 @@ namespace PIWCeRegister.Source.Models
         [ProtoMember(4, OverwriteList = true)]
         [DataMember]
         public virtual ICollection<member> members { get; set; }
+
+        public bool Equals(m_occupation other)
+        {
+            if (other == null) return false;
+
+            return (Occupation_Name == other.Occupation_Name);
+        }
     }
 }

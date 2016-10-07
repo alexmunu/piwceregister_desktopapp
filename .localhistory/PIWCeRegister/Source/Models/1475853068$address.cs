@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 using System.Runtime.Serialization;
+using PIWCeRegister.Source;
 using ProtoBuf;
 
 namespace PIWCeRegister.Source.Models
@@ -17,38 +18,44 @@ namespace PIWCeRegister.Source.Models
 
     [ProtoContract]
     [DataContract]
-    public partial class non_member : IModel<non_member>
+    public partial class address : IModel <address>
     {
+        public address()
+        {
+            this.members = new HashSet<member>();
+        }
+
         [ProtoMember(1)]
         [DataMember]
         public int Id { get; set; }
 
         [ProtoMember(2)]
         [DataMember]
-        public string FirstName { get; set; }
+        public Nullable<int> Street_no { get; set; }
 
         [ProtoMember(3)]
         [DataMember]
-        public string LastName { get; set; }
+        public string Street_Name { get; set; }
 
         [ProtoMember(4)]
         [DataMember]
-        public string Mobile_no { get; set; }
+        public string PostCode { get; set; }
 
         [ProtoMember(5)]
         [DataMember]
-        public string Purpose { get; set; }
+        public string City { get; set; }
 
         [ProtoMember(6)]
         [DataMember]
-        public Nullable<int> Comment { get; set; }
+        public string Country { get; set; }
 
-        public bool Equals(non_member other)
+        [ProtoMember(7,OverwriteList = true)]
+        [DataMember]
+        public virtual ICollection<member> members { get; set; }
+
+        public int CompareTo(IModel<address> other)
         {
-            return (
-                (FirstName == other.FirstName)
-                && (LastName == other.LastName)
-            );
+            throw new NotImplementedException();
         }
     }
 }

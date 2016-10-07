@@ -17,7 +17,7 @@ namespace PIWCeRegister.Source.Models
 
     [ProtoContract]
     [DataContract]
-    public partial class ch_services : IModel
+    public partial class ch_services : IModel<ch_services>
     {
         public ch_services()
         {
@@ -43,5 +43,16 @@ namespace PIWCeRegister.Source.Models
         [ProtoMember(5,OverwriteList = true)]
         [DataMember]
         public virtual ICollection<member> members { get; set; }
+
+        public bool Equals(ch_services other)
+        {
+            if (other == null) return false;
+
+            return (
+                (Type == other.Type)
+                && (Date == other.Date))
+                
+            ;
+        }
     }
 }

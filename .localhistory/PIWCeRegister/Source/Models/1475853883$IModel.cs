@@ -3,7 +3,7 @@ using System;
 
 namespace PIWCeRegister.Source.Models
 {
-    public interface IModel<T> : IEquatable<T>  where T:class 
+    public interface IModel<T> : IEquatable<IModel<T>>  where T:class 
     {
 
     }

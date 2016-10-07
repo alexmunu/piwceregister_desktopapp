@@ -30,10 +30,9 @@ namespace PIWCeRegister.Test
                 Mobile_no = "01465232465",
                 Telephone_no = "01245645652",
                 ch_services = new List<ch_services>() ,
-                
+                Id_Address = m1.address.Id,
+                Id_Occupation = m1.m_occupation.Id
             };
-            m1.Id_Occupation = m1.m_occupation.Id;
-            m1.Id_Address = m1.address.Id;
         }
 
 
