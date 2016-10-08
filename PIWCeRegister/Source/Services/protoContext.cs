@@ -11,7 +11,7 @@ namespace PIWCeRegister.Source.Services
     {
         private readonly Dictionary<string, object> _properties;
 
-        public List<T> GetPropertyValue<T>(string key) where T : class => (List<T>)_properties[key];
+        public List<T> GetPropertyValue<T>(string key) where T : class { return (List<T>)_properties[key]; }
 
         public ProtoContext(Dictionary<string, object> properties)
         {

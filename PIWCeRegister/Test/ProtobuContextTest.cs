@@ -29,8 +29,8 @@ namespace PIWCeRegister.Test
                 m_occupation = new m_occupation(),
                 Mobile_no = "01465232465",
                 Telephone_no = "01245645652",
-                ch_services = new List<ch_services>() ,
-                
+                ch_services = new List<ch_services>(),
+
             };
             m1.Id_Occupation = m1.m_occupation.Id;
             m1.Id_Address = m1.address.Id;
@@ -43,8 +43,8 @@ namespace PIWCeRegister.Test
             p = new ProtobufContext();
             p.Add(m1);
             p.ExecutorInterface<member>(p.ModelsList.ElementAt(0));
-           
-            var members= p.Context<member>();
+
+            var members = p.Context<member>();
 
             Console.WriteLine(members.ElementAt(0).FirstName);
         }
@@ -86,13 +86,11 @@ namespace PIWCeRegister.Test
         [Test]
         public void ConstructorInitException_Test()
         {
-            Assert.Throws<Exception>(
-                () =>
-                {
-                    p = new ProtobufContext();
-                    p.Executor<member>();
-                    p.Executor<ch_services>();
-                });
+
+            p = new ProtobufContext(new piwcldbEntities());
+            p.Executor<member>();
+            p.Executor<ch_services>();
+
         }
     }
 }

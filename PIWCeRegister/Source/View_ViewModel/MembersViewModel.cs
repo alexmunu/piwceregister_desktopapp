@@ -48,6 +48,6 @@ namespace PIWCeRegister.Source.View_ViewModel
             return TypeDescriptor.GetClassName(typeof(member));
         }
 
-        public Color BackgroudColor() => Color.FromRgb(26, 254, 244);
+        public Color BackgroudColor() { return Color.FromRgb(26, 254, 244); }
     }
 }

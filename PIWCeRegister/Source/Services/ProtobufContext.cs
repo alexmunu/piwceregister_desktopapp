@@ -120,7 +120,7 @@ namespace PIWCeRegister.Source.Services
         {
             return LoadSerialisedList<TModel>();
         }
-        public List<object> ModelsList => _modelsList;
+        public List<object> ModelsList { get { return _modelsList; } }
 
         public void Add<TModel>(TModel model) where TModel : class, IModel<TModel>
         {
