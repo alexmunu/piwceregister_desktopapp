@@ -53,7 +53,7 @@ namespace PIWCeRegister.Source.View_ViewModel
             }
             try
             {
-                c = GetColorFromString((string) value);
+                c = GetColorFromString(value as string);
                 return new SolidColorBrush(c);
             }
             catch (InvalidCastException ex)
