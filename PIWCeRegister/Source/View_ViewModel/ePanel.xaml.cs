@@ -16,7 +16,7 @@ namespace PIWCeRegister.Source.View_ViewModel
         public EPanel()
         {
             InitializeComponent();
-              DataContext=new MembersViewModel();
+             
         }
 
         public object ContextualClass
@@ -83,7 +83,7 @@ namespace PIWCeRegister.Source.View_ViewModel
                 case "Danger":
                     color = Color.FromRgb(217, 83, 79);
                     break;
-                case "Succes":
+                case "Success":
                     color = Color.FromRgb(92, 184, 92);
                     break;
                 default:

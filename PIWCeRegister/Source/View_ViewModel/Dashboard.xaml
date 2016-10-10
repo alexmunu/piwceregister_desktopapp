@@ -6,6 +6,10 @@
              xmlns:packageViewModels="clr-namespace:PIWCeRegister.Source.View_ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+        <packageViewModels:MembersViewModel x:Key="members"></packageViewModels:MembersViewModel>
+    </UserControl.Resources>
 
     <Grid  >
         <Grid.ColumnDefinitions>
@@ -20,19 +24,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Margin="10">
-            <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <packageViewModels:EPanel ContextualClass="Primary" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <StackPanel Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Border BorderBrush="White" BorderThickness="1,1,1,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <packageViewModels:EPanel ContextualClass="Primary" DataContext="{StaticResource members}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Border>
         </StackPanel >
-        <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >
-            <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
+        <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Border BorderBrush="White" BorderThickness="1,1,1,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <packageViewModels:EPanel ContextualClass="Success" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Border>
         </StackPanel>
-        <StackPanel Margin="10" Grid.Column="3" Grid.Row="0" >
-            <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <TextBlock TextWrapping="Wrap" Text=" hello your are n the dashboard!!"/>
+        <StackPanel Margin="10" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <Border BorderBrush="White" BorderThickness="1,1,1,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <packageViewModels:EPanel ContextualClass="Danger" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Border>
         </StackPanel>
         <!-- ReSharper disable once Xaml.MissingGridIndex -->

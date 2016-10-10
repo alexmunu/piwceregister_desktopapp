@@ -30,12 +30,7 @@ namespace PIWCeRegister.Source.View_ViewModel
             return ListMembers.Where(member => member.Id == id).ElementAt(0) ;
         }
 
-        public int GetModelListCount()
-        {
-            return ((List<member>)ListMembers).Count;
-        }
-
-        public IEnumerable<member> SearchInMembers(string key)
+         public IEnumerable<member> SearchInMembers(string key)
         {
             return ListMembers.Where(
                 listMembers =>
@@ -54,6 +49,14 @@ namespace PIWCeRegister.Source.View_ViewModel
         public ImageBrush panelImage()
         {
             return null;
+        }
+
+        int IPanellable.GetModelListCount
+        {
+            get
+            {
+                return ((List<member>)ListMembers).Count;
+            }
         }
     }
 }

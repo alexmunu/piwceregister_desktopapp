@@ -9,7 +9,10 @@ namespace PIWCeRegister.Source.View_ViewModel
 {
     interface IPanellable
     {
-        int GetModelListCount();
+        int GetModelListCount
+        {
+            get;
+        }
 
         string ModelName();
 
