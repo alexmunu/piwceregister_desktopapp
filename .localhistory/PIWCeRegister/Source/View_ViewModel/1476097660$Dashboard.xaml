@@ -22,7 +22,11 @@
 
         <StackPanel Margin="10">
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <packageViewModels:EPanel ContextualClass="Primary" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <packageViewModels:EPanel ContextualClass="Primary" >
+                    <packageViewModels:EPanel.DataContext>
+                        <packageViewModels:MembersViewModel/>
+                    </packageViewModels:EPanel.DataContext>
+                </packageViewModels:EPanel>
             </Border>
         </StackPanel >
         <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >

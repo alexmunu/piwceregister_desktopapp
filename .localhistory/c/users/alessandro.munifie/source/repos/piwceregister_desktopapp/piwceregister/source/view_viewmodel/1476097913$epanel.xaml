@@ -1,20 +1,12 @@
 ﻿<UserControl x:Class="PIWCeRegister.Source.View_ViewModel.EPanel"
-             x:Name="this"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             xmlns:control="clr-namespace:PIWCeRegister.Source.View_ViewModel"
              d:DesignHeight="300" d:DesignWidth="300"
-             >
-    
-    <UserControl.Resources>
-        <control:ClassColorConverter x:Key="Panel"></control:ClassColorConverter>
-    </UserControl.Resources>
+             DataContext="{Binding}">
     <Grid>
-        <TextBlock Text="Hello world !!!" Background="{Binding Converter={StaticResource Panel}, Path=ContextualClass, ElementName=this}">
-        </TextBlock>
+        <StackPanel Background="{Binding ContextualClass}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></StackPanel>   
     </Grid>
 </UserControl>
-

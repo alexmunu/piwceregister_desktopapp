@@ -19,7 +19,7 @@ namespace PIWCeRegister.Source.View_ViewModel
               DataContext=new MembersViewModel();
         }
 
-        public object ContextualClass
+        public Object ContextualClass
         {
             get { return GetValue(_class); }
             set { SetValue(_class, value); }
@@ -53,7 +53,7 @@ namespace PIWCeRegister.Source.View_ViewModel
             }
             try
             {
-                c = GetColorFromString((string) value);
+                c = GetColorFromString(value as string);
                 return new SolidColorBrush(c);
             }
             catch (InvalidCastException ex)
@@ -65,7 +65,7 @@ namespace PIWCeRegister.Source.View_ViewModel
         private static Color GetColorFromString(string colorString)
         {
             Color color;
-            switch (colorString)
+            switch ((string)colorString)
             {
                 case "Primary":
 
