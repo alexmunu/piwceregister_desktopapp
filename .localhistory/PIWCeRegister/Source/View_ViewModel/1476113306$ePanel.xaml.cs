@@ -62,7 +62,7 @@ namespace PIWCeRegister.Source.View_ViewModel
             }
         }
 
-        private static Color GetColorFromString(string colorString)
+        public static Color GetColorFromString(string colorString)
         {
             Color color;
             switch ((string)colorString)
@@ -95,7 +95,7 @@ namespace PIWCeRegister.Source.View_ViewModel
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            var val = value as SolidColorBrush;
+            SolidColorBrush val = value as SolidColorBrush;
             return val.Color.ToString();
             //if (typeof(Colors).GetProperty(val.Color.ToString()) != null)
             //    return typeof(Colors).GetProperty(val.Color.ToString()).GetValue(val, null);

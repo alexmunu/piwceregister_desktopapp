@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:packageViewModels="clr-namespace:PIWCeRegister.Source.View_ViewModel"
+             xmlns:panel="clr-namespace:PIWCeRegister.Source.View_ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
@@ -22,7 +22,8 @@
 
         <StackPanel Margin="10">
             <Border BorderBrush="White" BorderThickness="1,1,1,1">
-                <packageViewModels:EPanel ContextualClass="Primary" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+              
+                <panel:EPanel ContextualClass="Primary" />
             </Border>
         </StackPanel >
         <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" >
@@ -55,4 +56,3 @@
         </StackPanel>
     </Grid>
 </UserControl>
-

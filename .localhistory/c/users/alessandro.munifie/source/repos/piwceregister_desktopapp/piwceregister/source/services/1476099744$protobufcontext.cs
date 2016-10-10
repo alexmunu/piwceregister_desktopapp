@@ -78,7 +78,6 @@ namespace PIWCeRegister.Source.Services
                 try
                 {
                     var connection = _dbContext.Database.Connection;
-                    connection.Open();
                 }
                 catch (InvalidOperationException invalidOperation)
                 {

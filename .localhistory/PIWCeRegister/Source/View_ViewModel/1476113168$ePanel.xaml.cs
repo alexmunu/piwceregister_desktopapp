@@ -1,8 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace PIWCeRegister.Source.View_ViewModel
 {
@@ -30,40 +41,44 @@ namespace PIWCeRegister.Source.View_ViewModel
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (!(value is string)) return null;
-            var val = (string) value;
-            Color c;
-            if (val.StartsWith("#"))
+            if (value is string)
             {
-                val = val.Replace("#", "");
-                var a = System.Convert.ToByte("ff", 16);
-                byte pos = 0;
-                if (val.Length == 8)
+                var val = value as string;
+                Color c;
+                if (val.StartsWith("#"))
                 {
-                    a = System.Convert.ToByte(val.Substring(pos, 2), 16);
-                    pos = 2;
+                    val = val.Replace("#", "");
+                    byte a = System.Convert.ToByte("ff", 16);
+                    byte pos = 0;
+                    if (val.Length == 8)
+                    {
+                        a = System.Convert.ToByte(val.Substring(pos, 2), 16);
+                        pos = 2;
+                    }
+                    byte r = System.Convert.ToByte(val.Substring(pos, 2), 16);
+                    pos += 2;
+                    byte g = System.Convert.ToByte(val.Substring(pos, 2), 16);
+                    pos += 2;
+                    byte b = System.Convert.ToByte(val.Substring(pos, 2), 16);
+                    c = Color.FromArgb(a, r, g, b);
+                    return new SolidColorBrush(c);
                 }
-                var r = System.Convert.ToByte(val.Substring(pos, 2), 16);
-                pos += 2;
-                var g = System.Convert.ToByte(val.Substring(pos, 2), 16);
-                pos += 2;
-                var b = System.Convert.ToByte(val.Substring(pos, 2), 16);
-                c = Color.FromArgb(a, r, g, b);
-                return new SolidColorBrush(c);
+                try
+                {
+                    c = GetColorFromString(value as string);
+                    return new SolidColorBrush(c);
+                }
+                catch (InvalidCastException ex)
+                {
+                    return null;
+                }
             }
-            try
-            {
-                c = GetColorFromString(value as string);
-                return new SolidColorBrush(c);
-            }
-            catch (InvalidCastException ex)
-            {
-                return null;
-            }
+            return null;
         }
 
-        private static Color GetColorFromString(string colorString)
+        public static Color GetColorFromString(string colorString)
         {
+            
             Color color;
             switch ((string)colorString)
             {
@@ -95,7 +110,7 @@ namespace PIWCeRegister.Source.View_ViewModel
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            var val = value as SolidColorBrush;
+            SolidColorBrush val = value as SolidColorBrush;
             return val.Color.ToString();
             //if (typeof(Colors).GetProperty(val.Color.ToString()) != null)
             //    return typeof(Colors).GetProperty(val.Color.ToString()).GetValue(val, null);
