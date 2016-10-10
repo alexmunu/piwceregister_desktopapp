@@ -51,11 +51,11 @@ namespace PIWCeRegister.Source.View_ViewModel
             return null;
         }
 
-        int IPanellable.GetModelListCount
+        string IPanellable.GetModelListCount
         {
             get
             {
-                return ((List<member>)ListMembers).Count;
+                return "" +((List<member>)ListMembers).Count;
             }
         }
     }

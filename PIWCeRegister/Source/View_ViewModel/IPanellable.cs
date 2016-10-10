@@ -7,9 +7,9 @@ using System.Windows.Media;
 
 namespace PIWCeRegister.Source.View_ViewModel
 {
-    interface IPanellable
+    public interface IPanellable
     {
-        int GetModelListCount
+        string GetModelListCount
         {
             get;
         }
