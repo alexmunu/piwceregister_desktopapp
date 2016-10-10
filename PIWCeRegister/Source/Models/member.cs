@@ -60,12 +60,9 @@ namespace PIWCeRegister.Source.Models
         [DataMember]
         public virtual address address { get; set; }
 
-        [ProtoMember(10)]
-        [DataMember]
         public virtual m_occupation m_occupation { get; set; }
 
-        [ProtoMember(11, OverwriteList = true)]
-        [DataMember]
+       
         public virtual ICollection<ch_services> ch_services { get; set; }
 
         public bool Equals(member other)

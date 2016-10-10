@@ -36,8 +36,7 @@ namespace PIWCeRegister.Source.Models
         [DataMember]
         public string Description { get; set; }
 
-        [ProtoMember(4, OverwriteList = true)]
-        [DataMember]
+        
         public virtual ICollection<member> members { get; set; }
 
         public bool Equals(m_occupation other)

@@ -36,8 +36,7 @@ namespace PIWCeRegister.Source.Models
         [DataMember]
         public string Description { get; set; }
 
-        [ProtoMember(4,OverwriteList = true)]
-        [DataMember]
+       
         public virtual ICollection<ch_services> ch_services { get; set; }
 
         public bool Equals(services_types other)

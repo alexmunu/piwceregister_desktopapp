@@ -90,6 +90,12 @@ namespace PIWCeRegister.Test
             p = new ProtobufContext(new piwcldbEntities());
             p.Executor<member>();
             p.Executor<ch_services>();
+            p.Executor<m_occupation>();
+            p.Executor<address>();
+            p.Executor<non_member>();
+            var p_ = p.Context<member>();
+
+
 
         }
     }

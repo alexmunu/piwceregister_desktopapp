@@ -15,5 +15,7 @@ namespace PIWCeRegister.Source.View_ViewModel
 
         Color BackgroudColor();
 
+        ImageBrush panelImage();
+
     }
 }

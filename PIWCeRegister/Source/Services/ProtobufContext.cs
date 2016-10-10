@@ -36,7 +36,7 @@ namespace PIWCeRegister.Source.Services
 {
     class ProtobufContext
     {
-        private readonly DbContext _dbContext;
+        private readonly piwcldbEntities _dbContext;
 
         private readonly List<object> _modelsList;
 
@@ -44,7 +44,7 @@ namespace PIWCeRegister.Source.Services
 
         private ProtoContext _instance;
 
-        public ProtobufContext(DbContext dbContext)
+        public ProtobufContext(piwcldbEntities dbContext)
         {
             _dbContext = dbContext;
             this._modelsList = new List<object>();
@@ -95,7 +95,7 @@ namespace PIWCeRegister.Source.Services
         {
             var p = new List<TModel>();
 
-            using (var file = File.OpenRead(AppDomain.CurrentDomain.BaseDirectory + typeof(TModel).Name + "s.bin"))
+            using (var file = File.OpenRead(string.Format("{0}/{1}.bin", AppDomain.CurrentDomain.BaseDirectory, typeof(TModel).Name)))
             {
                 p = Serializer.Deserialize<List<TModel>>(file);
             }
@@ -105,7 +105,7 @@ namespace PIWCeRegister.Source.Services
 
         private void SaveSerialisedList<TModel>(List<TModel> list) where TModel : class, IModel<TModel>
         {
-            using (var file = File.Create(AppDomain.CurrentDomain.BaseDirectory + typeof(TModel).Name + "s.bin"))
+            using (var file = File.Create(string.Format("{0}/{1}.bin", AppDomain.CurrentDomain.BaseDirectory, typeof(TModel).Name)))
             {
                 Serializer.Serialize(file, list);
             }
@@ -153,6 +153,9 @@ namespace PIWCeRegister.Source.Services
             var modelList = new List<TModel>();
             if (TestConnection)
             {
+                IQueryable<TModel> dbContextEntry = _dbContext.Set<TModel>();
+
+                Console.Write(dbContextEntry.Take(1).ToList().ElementAt(0));
                 modelList = _dbContext.Set<TModel>().ToList();
                 //Save serialised Model List
                 SaveSerialisedList(modelList);

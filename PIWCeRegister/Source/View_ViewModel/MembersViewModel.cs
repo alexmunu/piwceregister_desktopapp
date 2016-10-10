@@ -49,5 +49,11 @@ namespace PIWCeRegister.Source.View_ViewModel
         }
 
         public Color BackgroudColor() { return Color.FromRgb(26, 254, 244); }
+
+
+        public ImageBrush panelImage()
+        {
+            return null;
+        }
     }
 }
