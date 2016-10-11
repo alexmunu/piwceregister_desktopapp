@@ -7,17 +7,18 @@ using System.Windows.Media;
 
 namespace PIWCeRegister.Source.View_ViewModel
 {
-    public abstract class IPanellable
+    public interface IPanellable
     {
-        public virtual string GetModelListCount
+        string GetModelListCount
         {
             get;
         }
 
-        protected abstract string ModelName();
+        string ModelName();
 
-        protected abstract Color BackgroudColor();
+        Color BackgroudColor();
 
-        protected abstract ImageBrush panelImage();
+        ImageBrush panelImage();
+
     }
 }

@@ -36,22 +36,22 @@ namespace PIWCeRegister.Source.View_ViewModel
                 listMembers =>
                     listMembers.LastName.Contains(key) || listMembers.FirstName.Contains(key) ||
                     listMembers.Pim_no.Contains(key));
-        }
+        }                              
 
-        protected override string ModelName()
+        public string ModelName()
         {
             return TypeDescriptor.GetClassName(typeof(member));
         }
 
-        protected override Color BackgroudColor() { return Color.FromRgb(26, 254, 244); }
+        public Color BackgroudColor() { return Color.FromRgb(26, 254, 244); }
 
 
-        protected override ImageBrush panelImage()
+        public ImageBrush panelImage()
         {
             return null;
         }
 
-        public override string GetModelListCount
+        string IPanellable.GetModelListCount
         {
             get
             {
