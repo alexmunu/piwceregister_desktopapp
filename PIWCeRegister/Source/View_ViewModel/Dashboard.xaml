@@ -24,19 +24,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel Margin="10,10,10,12" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="container">
             <Border BorderBrush="White" BorderThickness="1,1,1,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <packageViewModels:EPanel ContextualClass="Primary" DataContext="{StaticResource members}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <packageViewModels:EPanel ContextualClass="Primary" DataContext="{StaticResource members}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="{Binding ElementName=container, Path=ActualHeight}" />
             </Border>
         </StackPanel >
         <StackPanel Margin="10" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Border BorderBrush="White" BorderThickness="1,1,1,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <packageViewModels:EPanel ContextualClass="Success"  DataContext="{StaticResource members}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <packageViewModels:EPanel ContextualClass="Success"  DataContext="{StaticResource members}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="{Binding ElementName=container, Path=ActualHeight}"  />
             </Border>
         </StackPanel>
         <StackPanel Margin="10" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
             <Border BorderBrush="White" BorderThickness="1,1,1,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <packageViewModels:EPanel ContextualClass="Danger"  DataContext="{StaticResource members}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <packageViewModels:EPanel ContextualClass="Danger"  DataContext="{StaticResource members}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="{Binding ElementName=container, Path=ActualHeight}" />
             </Border>
         </StackPanel>
         <!-- ReSharper disable once Xaml.MissingGridIndex -->

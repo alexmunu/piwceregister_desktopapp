@@ -9,7 +9,7 @@ namespace PIWCeRegister.Source.View_ViewModel
 {
     public abstract class IPanellable
     {
-        public virtual string GetModelListCount
+        public abstract string GetModelListCount
         {
             get;
         }
